@@ -1,0 +1,44 @@
+#!/bin/bash
+
+source ./functions
+programs=(
+    # basic programs
+    "git"
+    "neofetch"
+
+    # xorg-programs
+    "xorg-server"
+    "org-xinit"
+    "xorg-xset"
+    "xorg-setxkbmap"
+    "xorg-xrandr"
+    "xcompmgr"
+    "xwallpaper"
+    "xclip"
+    "xsel"
+    "light"
+
+    # user programs
+    "flameshot"
+    "brave-bin"
+    "firefox"
+    "neovim"
+    "npm"
+    "clang"
+    "pavucontrol"
+    "sxiv"
+    "mpv"
+    "delta-git"
+    "zsh"
+    "zsh-syntax-highlighting-git"
+    "newsboat"
+    "yt-dlp"
+    "python-pip"
+)
+
+for package in "${programs[@]}"
+do
+    yay -S $package --noconfirm
+    # errorReporting "yay" "$package"
+    # yay returns 0 if it is not able to find the program
+done

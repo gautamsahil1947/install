@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+directory="/home/$USER/.config/repos"
+
+# check if directory is there or not
+[ -d $directory ] && true || mkdir -p ~/.config/repos
+cd ~/.config/repos
+
+
+repos=(
+    "gautamsahil1947"
+    "studies" 
+    "utils"
+    "nvim"
+    "install"
+
+    # suckless
+    "dwm"
+    "st"
+    "dmenu"
+    
+)
+
+github="gautamsahil1947"
+for repo in "${repos[@]}"
+do
+    [ -d "$directory/$repo" ] && true || git clone https://github.com/$github/$repo
+done

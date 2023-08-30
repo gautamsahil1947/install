@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# takes one argument as the name of program
+# and waits till that program is running
+waitFunction() {
+
+    pid=$(pidof -x "$1")
+    while [ -n "$pid" ]
+    do
+        sleep 2
+        pid=$(pidof -x "$1")
+    done
+}
+
+
+
+# takes program names as $1
+# also takes the thing that it was trying to install as $2
+errorReporting() {
+    errorCode=$?
+    [ -f "log.txt" ] && true || touch "log.txt"
+    if [ $errorCode = 0 ]
+    then
+        echo "[Green]: OK --> $1 --> $2 --> Return value: $errorCode\n" >> log.txt
+    else
+        echo "[Red]:   ERROR --> $1 --> $2 --> Return value: $errorCode\n" >> log.txt
+    fi
+}
+# if execution was ok, then puts [Green] OK in the log file
+# else if there was non-zero return value [Red] ERROR
+

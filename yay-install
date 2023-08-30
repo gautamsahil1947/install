@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source ./functions
+
+cd /tmp
+[ -d "/tmp/yay-bin" ] && rm -rf /tmp/yay-bin
+git clone https://aur.archlinux.org/yay-bin
+
+program="git"
+waitFunction $program
+
+if [ -d "/tmp/yay-bin" ]
+then
+    cd /tmp/yay-bin
+    makepkg -si
+fi
+
+
+
