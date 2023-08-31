@@ -16,6 +16,7 @@ programs=(
     "xclip"
     "xsel"
     "light"
+    "libnotify"
 
     # user programs
     "tmux"
