@@ -34,7 +34,7 @@ sudo ln -s $fileDirectory/utils/fonts /usr/share/fonts/fonts
 fc-cache
 
 [ -d "/home/$USER/.cache/wal" ] && true || mkdir /home/$USER/.cache/wal
-cp -r $fileDirectory/utils/wal/wal.example /home/$USER/.cache/wal
+cp -r $fileDirectory/utils/wal/wal.example/* /home/$USER/.cache/wal
 
 
 cd $fileDirectory/utils/bin
