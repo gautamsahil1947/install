@@ -34,7 +34,18 @@ programs=(
     "newsboat"
     "yt-dlp"
     "python-pip"
+    "arc-gtk-theme"
+
+    "gimp"
+    "blender"
 )
+
+if command -v "yay"
+then
+    yay -Sy --noconfirm
+else
+    sudo pacman -Sy --noconfirm
+fi
 
 for package in "${programs[@]}"
 do

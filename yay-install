@@ -1,14 +1,26 @@
 #!/bin/bash
 
+# source the functions
 source ./functions
 
 cd /tmp
+# ensure that git is installed
+if command -v "git"
+then
+    echo "Git already installed"
+else
+    echo "installing git"
+    sudo pacman -S git --noconfirm
+fi
+
+# if yay-bin already in /tmp, delete it
 [ -d "/tmp/yay-bin" ] && rm -rf /tmp/yay-bin
 git clone https://aur.archlinux.org/yay-bin
 
 program="git"
 waitFunction $program
 
+# only if yay-bin is there in /tmp 
 if [ -d "/tmp/yay-bin" ]
 then
     cd /tmp/yay-bin

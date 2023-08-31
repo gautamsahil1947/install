@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# setup .xinitrc file first
+cd
+
+fileDirectory="/home/$USER/.config/repos"
+configDirectory="/home/$USER/.config"
+
+sudo ln -s $fileDirectory/utils/.xinitrc /home/$USER/.xinitrc
+
+# -------- SETTING UP SYMBOLIC LINKS -----------
+
+# setup system fonts and theme
+cd /home/$USER/.config
+linkRepos=(
+    "tmux"
+    "wal"
+    "yt-dlp"
+    "nvim"
+    "newsboat"
+    "mpv"
+    "gtk-3.0"
+    "dunst"
+)
+
+for directory in "${linkRepos[@]}"
+do
+    sudo ln -s $fileDirectory/utils/$directory $configDirectory/$directory
+done
+
+
+# system fonts
+sudo ln -s $fileDirectory/utils/fonts /usr/share/fonts/fonts
+fc-cache
+
+[ -d "/home/$USER/.cache/wal" ] && true || mkdir /home/$USER/.cache/wal
+cp -r $fileDirectory/utils/wal/wal.example /home/$USER/.cache/wal
+
+
+cd $fileDirectory/utils/bin
+./buildsuckless
+startx
+
+
+
+
+
+
