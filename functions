@@ -13,7 +13,6 @@ waitFunction() {
 }
 
 
-
 # takes program names as $1
 # also takes the thing that it was trying to install as $2
 errorReporting() {

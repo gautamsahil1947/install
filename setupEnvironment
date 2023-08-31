@@ -16,7 +16,6 @@ linkRepos=(
     "tmux"
     "wal"
     "yt-dlp"
-    "nvim"
     "newsboat"
     "mpv"
     "gtk-3.0"
@@ -27,6 +26,7 @@ for directory in "${linkRepos[@]}"
 do
     sudo ln -s $fileDirectory/utils/$directory $configDirectory/$directory
 done
+sudo ln -s $fileDirectory/nvim $configDirectory/nvim
 
 
 # system fonts
