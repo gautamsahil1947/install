@@ -54,7 +54,8 @@ chsh -s $(which zsh)
 
 # I have to check why dmenu is not building
 buildsuckless
-startx
+reboot
+
 
 
 

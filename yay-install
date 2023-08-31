@@ -3,11 +3,11 @@
 # Source functions
 source ./functions
 # Check if yay already installed
-[ -n $(command -v yay) ] && echo "Yay already there"; exit
+[ -n "$(command -v yay)" ] && echo "Yay already there"; exit
 
 # if not then install it
 cd /tmp
-[ -n $(command -v git) ] && echo "Git already installed" || sudo pacman -S git --noconfirm
+[ -n "$(command -v git)" ] && echo "Git already installed" || sudo pacman -S git --noconfirm
 [ -d "/tmp/yay-bin" ] && true || rm -rf /tmp/yay-bin
 git clone https://aur.archlinux.org/yay-bin
 waitFunction "git"
