@@ -42,9 +42,14 @@ fc-cache
 [ -d "/home/$USER/.cache/wal" ] && true || mkdir /home/$USER/.cache/wal
 cp -r $fileDirectory/utils/wal/wal.example/* /home/$USER/.cache/wal
 
+# changing the default shell bash -> zsh 
+ln -s $fileDirectory/utils/zsh/.zshrc /home/$USER/.zshrc
+ln -s $fileDirectory/utils/zsh/.zprofile /home/$USER/.zprofile
 
-cd $fileDirectory/utils/bin
-./buildsuckless
+sudo chsh -s $(/bin/zsh)
+chsh -s $(/bin/zsh)
+
+buildsuckless
 startx
 
 

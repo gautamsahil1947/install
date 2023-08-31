@@ -18,6 +18,7 @@ programs=(
     "light"
 
     # user programs
+    "tmux"
     "flameshot"
     "brave-bin"
     "firefox"
