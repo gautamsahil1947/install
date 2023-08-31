@@ -53,6 +53,9 @@ sudo chsh -s $(which zsh)
 chsh -s $(which zsh)
 
 # I have to check why dmenu is not building
+#   Turns out that There was a commit, which 
+#   wasn't pushed ;)
+
 buildsuckless
 reboot
 

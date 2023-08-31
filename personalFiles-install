@@ -10,11 +10,12 @@ cd ~/.config/repos
 
 
 repos=(
-    "gautamsahil1947"
-    "studies" 
+    # "gautamsahil1947"
+    # "studies" 
     "utils"
     "nvim"
-    "install"
+    # "install"
+    # "cpp"
 
     # suckless
     "dwm"
