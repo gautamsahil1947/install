@@ -13,8 +13,8 @@ else
     sudo pacman -S git --noconfirm
 fi
 
-# if yay-bin already in /tmp, delete it
-[ -d "/tmp/yay-bin" ] && rm -rf /tmp/yay-bin
+# if yay-bin already in /tmp, use it
+[ -d "/tmp/yay-bin" ] && true || rm -rf /tmp/yay-bin
 git clone https://aur.archlinux.org/yay-bin
 
 program="git"

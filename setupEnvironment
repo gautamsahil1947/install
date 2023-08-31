@@ -1,12 +1,17 @@
 #!/bin/bash
 
-# setup .xinitrc file first
-cd
-
 fileDirectory="/home/$USER/.config/repos"
 configDirectory="/home/$USER/.config"
+PATH="$fileDirectory/utils/bin:$PATH"
 
+# setup .xinitrc file first
+
+cd
 sudo ln -s $fileDirectory/utils/.xinitrc /home/$USER/.xinitrc
+# add error handling for cases where files like .xinitr are not there
+
+# setting up tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # -------- SETTING UP SYMBOLIC LINKS -----------
 
@@ -26,6 +31,7 @@ for directory in "${linkRepos[@]}"
 do
     sudo ln -s $fileDirectory/utils/$directory $configDirectory/$directory
 done
+
 sudo ln -s $fileDirectory/nvim $configDirectory/nvim
 
 

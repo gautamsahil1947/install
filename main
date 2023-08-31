@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source ./functions
 ./yay-install
 ./programs-install
 ./personalFiles-install

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source ./functions
 programs=(
     # basic programs
     "git"
