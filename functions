@@ -3,7 +3,6 @@
 # takes one argument as the name of program
 # and waits till that program is running
 waitFunction() {
-
     pid=$(pidof -x "$1")
     while [ -n "$pid" ]
     do

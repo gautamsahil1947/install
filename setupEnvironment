@@ -2,6 +2,7 @@
 
 fileDirectory="/home/$USER/.config/repos"
 configDirectory="/home/$USER/.config"
+
 PATH="$fileDirectory/utils/bin:$PATH"
 
 # setup .xinitrc file first

@@ -4,6 +4,7 @@
 directory="/home/$USER/.config/repos"
 
 # check if directory is there or not
+# also [ has a return value ] there fore 1>/dev/null 2>&1 maybe
 [ -d $directory ] && true || mkdir -p ~/.config/repos
 cd ~/.config/repos
 
