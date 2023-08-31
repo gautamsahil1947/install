@@ -3,4 +3,5 @@
 ./yay-install
 ./programs-install
 ./personalFiles-install
+./setupEnvironment
 
