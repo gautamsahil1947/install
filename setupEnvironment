@@ -46,9 +46,12 @@ cp -r $fileDirectory/utils/wal/wal.example/* /home/$USER/.cache/wal
 ln -s $fileDirectory/utils/zsh/.zshrc /home/$USER/.zshrc
 ln -s $fileDirectory/utils/zsh/.zprofile /home/$USER/.zprofile
 
-sudo chsh -s $(/bin/zsh)
-chsh -s $(/bin/zsh)
+sudo echo "/usr/bin/zsh" >> /etc/shells
 
+sudo chsh -s $(which zsh)
+chsh -s $(which zsh)
+
+# I have to check why dmenu is not building
 buildsuckless
 startx
 

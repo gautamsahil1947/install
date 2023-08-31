@@ -21,14 +21,15 @@ programs=(
     "tmux"
     "flameshot"
     "brave-bin"
-    "firefox"
+    "dunst"
+    # "firefox"
     "neovim"
     "npm"
     "clang"
     "pavucontrol"
     "sxiv"
     "mpv"
-    "delta-git"
+    # "delta-git"
     "zsh"
     "zsh-syntax-highlighting-git"
     "newsboat"
@@ -36,8 +37,8 @@ programs=(
     "python-pip"
     "arc-gtk-theme"
 
-    "gimp"
-    "blender"
+    # "gimp"
+    # "blender"
 )
 
 if command -v "yay"
