@@ -8,7 +8,7 @@ programs=(
 
     # xorg-programs
     "xorg-server"
-    "org-xinit"
+    "xorg-xinit"
     "xorg-xset"
     "xorg-setxkbmap"
     "xorg-xrandr"
