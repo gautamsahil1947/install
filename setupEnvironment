@@ -30,6 +30,7 @@ linkRepos=(
 
 for directory in "${linkRepos[@]}"
 do
+    # need to add that if no such file is there, only then do this
     sudo ln -s $fileDirectory/utils/$directory $configDirectory/$directory
 done
 
@@ -57,6 +58,7 @@ chsh -s $(which zsh)
 #   wasn't pushed ;)
 
 buildsuckless
+[ -d "/home/$USER/archives/yt-dlp" ] && true || mkdir -p "/home/$USER/archives/yt-dlp"
 reboot
 
 

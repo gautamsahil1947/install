@@ -17,12 +17,20 @@ programs=(
     "xsel"
     "light"
     "libnotify"
+    "xorg-xprop"
+    "docker"
+    "thunar"
+    # for allowing android connection and mounting
+    "mtpfs"
+    "gvfs-mtp"
 
     # user programs
     "tmux"
     "flameshot"
     "brave-bin"
     "dunst"
+    "gtypist"
+    # "adwaita-dark"
     # "firefox"
     "neovim"
     "npm"
@@ -37,6 +45,8 @@ programs=(
     "yt-dlp"
     "python-pip"
     "arc-gtk-theme"
+    "btop"
+    "xdotool"
 
     # "gimp"
     # "blender"
