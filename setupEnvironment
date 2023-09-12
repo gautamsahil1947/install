@@ -50,8 +50,8 @@ ln -s $fileDirectory/utils/zsh/.zprofile /home/$USER/.zprofile
 
 sudo echo "/usr/bin/zsh" >> /etc/shells
 
-sudo chsh -s $(which zsh)
 chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 
 # I have to check why dmenu is not building
 #   Turns out that There was a commit, which 
