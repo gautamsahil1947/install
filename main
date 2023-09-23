@@ -2,7 +2,7 @@
 
 #----------------- pacman update--------------------------
 
-sudo pacman -syu
+sudo pacman -Syu
 
 #----------------- installing  yay------------------------
 
