@@ -6,22 +6,25 @@ sudo pacman -syu
 
 #----------------- installing  yay------------------------
 
-[ -n "$(command -v yay)" ] && echo "yay already there" && exit
-cd /tmp || exit
+if [ -z "$(command -v yay)" ]; then
+    cd /tmp
 
-if [ -n "$(command -v git)" ]; then
-    echo "git already installed"
+    if [ -n "$(command -v git)" ]; then
+        echo "git already installed"
+    else
+        sudo pacman -S git --noconfirm
+    fi
+
+    [ -d "/tmp/yay-bin" ] || rm -rf /tmp/yay-bin
+    git clone https://aur.archlinux.org/yay-bin
+
+    if [ -d "/tmp/yay-bin" ]; then
+        cd /tmp/yay-bin && makepkg -si 
+    else
+        echo "yay-bin/ not in /tmp"
+    fi
 else
-    sudo pacman -S git --noconfirm
-fi
-
-[ -d "/tmp/yay-bin" ] || rm -rf /tmp/yay-bin
-git clone https://aur.archlinux.org/yay-bin
-
-if [ -d "/tmp/yay-bin" ]; then
-    cd /tmp/yay-bin && makepkg -si 
-else
-    echo "yay-bin/ not in /tmp"
+    echo "yay already installed"
 fi
 
 #----------------------installing programs------------------------
