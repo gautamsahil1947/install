@@ -1,8 +1,197 @@
 #!/bin/bash
 
-source ./functions
-./yay-install
-./programs-install
-./personalFiles-install
-./setupEnvironment
+#----------------- pacman update--------------------------
+
+sudo pacman -syu
+
+#----------------- installing  yay------------------------
+
+[ -n "$(command -v yay)" ] && echo "yay already there" && exit
+cd /tmp || exit
+
+if [ -n "$(command -v git)" ]; then
+    echo "git already installed"
+else
+    sudo pacman -s git --noconfirm
+fi
+
+[ -d "/tmp/yay-bin" ] || rm -rf /tmp/yay-bin
+git clone https://aur.archlinux.org/yay-bin
+
+if [ -d "/tmp/yay-bin" ]; then
+    cd /tmp/yay-bin && makepkg -si 
+else
+    echo "yay-bin/ not in /tmp"
+fi
+
+#----------------------installing programs------------------------
+
+programs=(
+    # basic programs
+    "git"
+    "neofetch"
+
+    # xorg-programs
+    "xorg-server"
+    "xorg-xinit"
+    "xorg-xset"
+    "xorg-setxkbmap"
+    "xorg-xrandr"
+    "xcompmgr"
+    "xwallpaper"
+    "xclip"
+    "xsel"
+    "light"
+    "libnotify"
+    "xorg-xprop"
+    "docker"
+    "thunar"
+    # for allowing android connection and mounting
+    "mtpfs"
+    "gvfs-mtp"
+    "clang-format" # clang-format -style=google -dump-config > .clang-format
+    # user programs
+    "tmux"
+    "flameshot"
+    "brave-bin"
+    "dunst"
+    "gtypist"
+    # "adwaita-dark"
+    # "firefox"
+    "neovim"
+    "npm"
+    "clang"
+    "pavucontrol"
+    "sxiv"
+    "mpv"
+    # "delta-git"
+    "zsh"
+    "zsh-syntax-highlighting-git"
+    "newsboat"
+    "yt-dlp"
+    "python-pip"
+    "arc-gtk-theme"
+    "btop"
+    "xdotool"
+
+    # "gimp"
+    # "blender"
+)
+
+
+for package in "${programs[@]}"
+do
+    yay -s $package --noconfirm
+done
+
+#-----------------------code repos setup--------------------------
+
+# make the repos directory
+if [ -d "/home/$user/.config/repos" ]; then
+else
+    mkdir -p "/home/$user/.config/repos"
+fi
+
+
+directory="/home/$user/.config/repos"
+cd $directory || exit
+
+repos=(
+    # "gautamsahil1947"
+    # "studies" 
+    "utils"
+    "nvim"
+    # "install"
+    # "cpp"
+    
+    # suckless
+    "dwm"
+    "st"
+    "dmenu"
+)
+
+github="gautamsahil1947"
+for repo in "${repos[@]}"
+do
+    [ -d "$directory/$repo" ] && true || git clone https://github.com/$github/$repo
+done
+
+
+
+#------------------------------setting up the environment--------------------------
+
+filedirectory="/home/$user/.config/repos"
+configdirectory="/home/$user/.config"
+
+path="$filedirectory/utils/bin:$path"
+
+# setup .xinitrc file first
+
+cd
+sudo ln -s $filedirectory/utils/.xinitrc /home/$user/.xinitrc
+
+# tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# -------- setting up symbolic links -----------
+
+# setup system fonts and theme
+cd /home/$user/.config
+linkrepos=(
+    "tmux"
+    "wal"
+    "yt-dlp"
+    "newsboat"
+    "mpv"
+    "gtk-3.0"
+    "dunst"
+)
+
+for directory in "${linkrepos[@]}"
+do
+    # need to add that if no such file is there, only then do this
+    sudo ln -s $filedirectory/utils/$directory $configdirectory/$directory
+done
+
+sudo ln -s $filedirectory/nvim $configdirectory/nvim
+
+
+# system fonts
+sudo ln -s $filedirectory/utils/fonts /usr/share/fonts/fonts
+fc-cache
+
+[ -d "/home/$user/.cache/wal" ] && true || mkdir /home/$user/.cache/wal
+cp -r $filedirectory/utils/wal/wal.example/* /home/$user/.cache/wal
+
+# changing the default shell bash -> zsh 
+ln -s $filedirectory/utils/zsh/.zshrc /home/$user/.zshrc
+ln -s $filedirectory/utils/zsh/.zprofile /home/$user/.zprofile
+
+sudo echo "/usr/bin/zsh" >> /etc/shells
+
+chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
+
+# i have to check why dmenu is not building
+#   turns out that there was a commit, which 
+#   wasn't pushed ;)
+
+buildsuckless
+[ -d "/home/$user/archives/yt-dlp" ] && true || mkdir -p "/home/$user/archives/yt-dlp"
+reboot
+
+# now create another script which you would run after adding the ssh key
+
+
+
+
+
+
+
+
+
+
+
+
+
 

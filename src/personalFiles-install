@@ -1,4 +1,9 @@
 #!/bin/bash
+# Add option to remove them all if exist, and install via ssh
+# as during fresh installation, these are cloned using https
+
+# this should be implemented using maybe the first argument ($1)
+# or something else
 
 
 directory="/home/$USER/.config/repos"

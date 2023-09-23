@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Source functions
-source ./functions
 # Check if yay already installed
 [ -n "$(command -v yay)" ] && echo "Yay already there EXIT $0" && exit
 

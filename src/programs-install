@@ -23,7 +23,7 @@ programs=(
     # for allowing android connection and mounting
     "mtpfs"
     "gvfs-mtp"
-
+    "clang-format" # clang-format -style=google -dump-config > .clang-format
     # user programs
     "tmux"
     "flameshot"
