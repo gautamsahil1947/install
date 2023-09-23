@@ -90,7 +90,9 @@ done
 #-----------------------code repos setup--------------------------
 
 # make the repos directory
-if [ -d "/home/$user/.config/repos" ]; then
+if [ -d "/home/$user/.config/repos" ]
+then
+    echo "true"
 else
     mkdir -p "/home/$user/.config/repos"
 fi
