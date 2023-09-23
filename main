@@ -53,7 +53,7 @@ programs=(
     # "mtpfs"
     # "gvfs-mtp"
     # "clang-format" # clang-format -style=google -dump-config > .clang-format
-    # user programs
+    # USER programs
     "tmux"
     # "flameshot"
     "brave-bin"
@@ -90,15 +90,15 @@ done
 #-----------------------code repos setup--------------------------
 
 # make the repos directory
-if [ -d "/home/$user/.config/repos" ]
+if [ -d "/home/$USER/.config/repos" ]
 then
     echo "true"
 else
-    mkdir -p "/home/$user/.config/repos"
+    mkdir -p "/home/$USER/.config/repos"
 fi
 
 
-directory="/home/$user/.config/repos"
+directory="/home/$USER/.config/repos"
 cd $directory || exit
 
 repos=(
@@ -125,15 +125,15 @@ done
 
 #------------------------------setting up the environment--------------------------
 
-filedirectory="/home/$user/.config/repos"
-configdirectory="/home/$user/.config"
+filedirectory="/home/$USER/.config/repos"
+configdirectory="/home/$USER/.config"
 
 path="$filedirectory/utils/bin:$path"
 
 # setup .xinitrc file first
 
 cd
-sudo ln -s $filedirectory/utils/.xinitrc /home/$user/.xinitrc
+sudo ln -s $filedirectory/utils/.xinitrc /home/$USER/.xinitrc
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -141,7 +141,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # -------- setting up symbolic links -----------
 
 # setup system fonts and theme
-cd /home/$user/.config
+cd /home/$USER/.config
 linkrepos=(
     "tmux"
     "wal"
@@ -165,12 +165,12 @@ sudo ln -s $filedirectory/nvim $configdirectory/nvim
 sudo ln -s $filedirectory/utils/fonts /usr/share/fonts/fonts
 fc-cache
 
-[ -d "/home/$user/.cache/wal" ] && true || mkdir /home/$user/.cache/wal
-cp -r $filedirectory/utils/wal/wal.example/* /home/$user/.cache/wal
+[ -d "/home/$USER/.cache/wal" ] && true || mkdir /home/$USER/.cache/wal
+cp -r $filedirectory/utils/wal/wal.example/* /home/$USER/.cache/wal
 
 # changing the default shell bash -> zsh 
-ln -s $filedirectory/utils/zsh/.zshrc /home/$user/.zshrc
-ln -s $filedirectory/utils/zsh/.zprofile /home/$user/.zprofile
+ln -s $filedirectory/utils/zsh/.zshrc /home/$USER/.zshrc
+ln -s $filedirectory/utils/zsh/.zprofile /home/$USER/.zprofile
 
 sudo echo "/usr/bin/zsh" >> /etc/shells
 
@@ -182,7 +182,7 @@ sudo chsh -s $(which zsh)
 #   wasn't pushed ;)
 
 buildsuckless
-[ -d "/home/$user/archives/yt-dlp" ] && true || mkdir -p "/home/$user/archives/yt-dlp"
+[ -d "/home/$USER/archives/yt-dlp" ] && true || mkdir -p "/home/$USER/archives/yt-dlp"
 reboot
 
 # now create another script which you would run after adding the ssh key
