@@ -31,8 +31,8 @@ fi
 
 programs=(
     # basic programs
-    "git"
-    "neofetch"
+    # "git"
+    # "neofetch"
 
     # xorg-programs
     "xorg-server"
@@ -50,23 +50,23 @@ programs=(
     "docker"
     "thunar"
     # for allowing android connection and mounting
-    "mtpfs"
-    "gvfs-mtp"
-    "clang-format" # clang-format -style=google -dump-config > .clang-format
+    # "mtpfs"
+    # "gvfs-mtp"
+    # "clang-format" # clang-format -style=google -dump-config > .clang-format
     # user programs
     "tmux"
-    "flameshot"
+    # "flameshot"
     "brave-bin"
     "dunst"
-    "gtypist"
+    # "gtypist"
     # "adwaita-dark"
     # "firefox"
     "neovim"
     "npm"
     "clang"
     "pavucontrol"
-    "sxiv"
-    "mpv"
+    # "sxiv"
+    # "mpv"
     # "delta-git"
     "zsh"
     "zsh-syntax-highlighting-git"
