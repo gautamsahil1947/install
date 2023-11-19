@@ -1,16 +1,9 @@
 #!/bin/bash
-# Add option to remove them all if exist, and install via ssh
-# as during fresh installation, these are cloned using https
-
-# this should be implemented using maybe the first argument ($1)
-# or something else
 
 
 directory="/home/$USER/.config/repos"
 
-# check if directory is there or not
-# also [ has a return value ] there fore 1>/dev/null 2>&1 maybe
-[ -d $directory ] && true || mkdir -p ~/.config/repos
+[ -d $configDIR ] && true || mkdir -p $configDIR
 cd ~/.config/repos
 
 

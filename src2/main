@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+export homeDIR="/home/$USER/"
+export archiveDIR="$homeDIR/archives"
+export sourceDIR="$homeDIR/.local/src"
+export configDIR="$homeDIR/.config"
+
+./yay-install
+./programs-install

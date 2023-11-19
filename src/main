@@ -1,9 +1,7 @@
 #!/bin/bash
-
 #----------------- pacman update--------------------------
 
 sudo pacman -Syu
-
 #----------------- installing  yay------------------------
 
 if [ -z "$(command -v yay)" ]; then
@@ -186,15 +184,6 @@ buildsuckless
 reboot
 
 # now create another script which you would run after adding the ssh key
-
-
-
-
-
-
-
-
-
 
 
 

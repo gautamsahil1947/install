@@ -1,0 +1,58 @@
+#!/bin/bash
+
+programs=(
+    "git"
+    "neofetch"
+
+    "xorg-server"
+    "xorg-xinit"
+    "xorg-xset"
+    "xorg-setxkbmap"
+    "xorg-xrandr"
+    "xcompmgr"
+    "xwallpaper"
+    "xclip"
+    "xsel"
+    "light"
+    "libnotify"
+    "xorg-xprop"
+    "docker"
+    "thunar"
+    # for allowing android connection and mounting
+    "mtpfs"
+    "gvfs-mtp"
+    "clang-format" # clang-format -style=google -dump-config > .clang-format
+    # user programs
+    "tmux"
+    "flameshot"
+    "brave-bin"
+    "dunst"
+    "gtypist"
+    # "adwaita-dark"
+    # "firefox"
+    "neovim"
+    "npm"
+    "clang"
+    "pavucontrol"
+    "sxiv"
+    "mpv"
+    # "delta-git"
+    "zsh"
+    "zsh-syntax-highlighting-git"
+    "newsboat"
+    "yt-dlp"
+    "python-pip"
+    "arc-gtk-theme"
+    "btop"
+    "xdotool"
+
+    # "gimp"
+    # "blender"
+)
+
+![ command -v yay ] && ./yay-install
+
+for package in ${programs[@]}
+do
+    yay -S $package --noconfirm
+done

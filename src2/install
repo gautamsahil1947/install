@@ -1,0 +1,78 @@
+#!/bin/bash
+
+homeDIR="/home/$USER/"
+archiveDIR="$homeDIR/archives"
+sourceDIR="$homeDIR/.local/src"
+configDIR="$homeDIR/.config"
+
+mkdir -p $archiveDIR
+mkdir -p $sourceDIR
+mkdir -p $configDIR
+
+# if git is installed or not!
+if ![ command -v git 1>/dev/null 2>&1 ];
+then
+    sudo pacman -S git --noconfirm
+fi
+
+# if yay is installed or not!
+if ![ command -v yay 1>/dev/null 2>&1 ];
+then
+    git clone "https://aur.archlinux.org/yay-bin" /tmp/yay-bin
+    cd /tmp/yay-bin
+    makepkg -si
+fi
+
+packages=(
+    "neofetch"
+    "neovim"
+    "tmux"
+    "light"
+    "xorg-server"
+    "xorg-xrandr"
+    "xorg-xinit"
+    "xorg-setxkbmap"
+    "xcompmgr"
+    "xwallpaper"
+    "xclip"
+    "xsel"
+    "libnotify"
+    "dunst"
+    "thunar"
+    "mtpfs"
+    "gvfs-mtp"
+    "flameshot"
+    "gtypist"
+    "npm"
+    "clang"
+    "zsh"
+    # "zsh-syntax-highlighting-git"
+    "yt-dlp"
+    "btop"
+    "xdotool"
+
+    "blender"
+    "discord"
+    "gimp"
+    "obs-studio"
+    "clang-format"
+    ""
+    ""
+    ""
+
+    # APPLICATIONS
+    "brave-bin"
+    "visual-studio-code-bin"
+    ""
+    ""
+    ""
+)
+
+for package in ${packages[@]}
+do
+    yay -S $package --noconfirm
+done
+
+# install packages
+
+# clone directories here
