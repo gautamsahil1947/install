@@ -36,9 +36,9 @@ function packageInstall() {
     done
 }
 
-function setup() {
-    # setup
-}
+# function setup() {
+#     # setup
+# }
 
 function installYay() {
     if command -v git;
