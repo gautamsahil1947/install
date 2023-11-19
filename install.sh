@@ -36,6 +36,10 @@ function packageInstall() {
     done
 }
 
+function setup() {
+    # setup
+}
+
 function installYay() {
     if command -v git;
     then
@@ -48,9 +52,9 @@ function installYay() {
 }
 
 function filesystem() {
-    mkdir -p /home/$USER/.config
-    mkdir -p /home/$USER/.local/src
-    mkdir -p /home/files
+    sudo mkdir -p /home/$USER/.config
+    sudo mkdir -p /home/$USER/.local/src
+    sudo mkdir -p /home/files
 }
 
 # install git and yay
